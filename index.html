@@ -5,25 +5,44 @@
   <title>VANTALAB — Digital Underground</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * { margin:0; padding:0; box-sizing: border-box; }
-    body {
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    html, body {
       background: #0d0d0d;
       color: #fff;
       font-family: 'Arial', sans-serif;
       overflow-x: hidden;
+      height: 100%;
     }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      animation: pulseBG 6s ease-in-out infinite;
+      z-index: -2;
+    }
+
+    @keyframes pulseBG {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+
     header {
       padding: 20px;
       text-align: center;
       border-bottom: 1px solid #1f1f1f;
     }
+
     header h1 {
-      font-size: 48px;
+      font-size: 54px;
       background: linear-gradient(90deg, #00ffe7, #ff00cc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: 2px;
     }
+
     .content {
       display: flex;
       flex-direction: column;
@@ -33,17 +52,23 @@
       padding: 60px 20px;
       min-height: 80vh;
     }
-    .content h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
+
+    .glitch {
+      font-size: 24px;
       color: #ccc;
+      position: relative;
+      margin-bottom: 30px;
+      animation: glitch 2s infinite;
     }
-    .content p {
-      font-size: 18px;
-      color: #888;
-      max-width: 600px;
-      margin-bottom: 40px;
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 #00ffe7, -2px 0 #ff00cc; }
+      25% { text-shadow: -2px 0 #00ffe7, 2px 0 #ff00cc; }
+      50% { text-shadow: 2px 0 #00ffe7, -2px 0 #ff00cc; }
+      75% { text-shadow: -2px 0 #00ffe7, 2px 0 #ff00cc; }
+      100% { text-shadow: 2px 0 #00ffe7, -2px 0 #ff00cc; }
     }
+
     .btn {
       display: inline-block;
       padding: 14px 30px;
@@ -55,10 +80,12 @@
       font-size: 16px;
       cursor: pointer;
     }
+
     .btn:hover {
       background: #00ffe7;
       color: #000;
     }
+
     footer {
       padding: 15px;
       text-align: center;
@@ -66,6 +93,7 @@
       color: #444;
       border-top: 1px solid #1f1f1f;
     }
+
     canvas {
       position: fixed;
       top: 0;
@@ -73,10 +101,10 @@
       z-index: 99;
       pointer-events: none;
     }
+
     @media (max-width: 600px) {
       header h1 { font-size: 36px; }
-      .content h2 { font-size: 24px; }
-      .content p { font-size: 16px; }
+      .glitch { font-size: 18px; }
       .btn { padding: 12px 25px; font-size: 14px; }
     }
   </style>
@@ -90,8 +118,7 @@
   </header>
 
   <div class="content">
-    <h2>Welcome to the Digital Underground</h2>
-    <p>Your private vault for drops, exploits, tools, and digital control — engineered for the chaos.</p>
+    <div class="glitch">Digital Chaos Engineered for Control</div>
     <a class="btn" onclick="launchFireworks()">Access the Lab</a>
   </div>
 
