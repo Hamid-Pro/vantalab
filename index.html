@@ -24,17 +24,26 @@
     }
     header {
       display: flex;
-      align-items: center;
-      gap: 1rem;
+      align-items: center; /* Vertically aligns items in the header */
+      gap: 1rem; /* Space between logo and text block */
       margin-bottom: 2.5rem;
     }
     header img {
-      height: 48px;
+      height: 48px; /* Adjusted height for the logo */
       width: auto;
+      /* If you want the logo to truly align with the base of the "V" in VantaLab,
+         you might need to adjust this using relative positioning or specific margins,
+         but for general professional alignment, aligning items to center is good. */
     }
-    h1 {
-      font-size: 2rem;
+    header h1 {
+      font-size: 2.5rem; /* Increased font size for VantaLab */
       margin: 0;
+      line-height: 1; /* Ensure tight line height for the heading */
+    }
+    header p {
+        font-size: 1.1rem; /* Slightly larger text for the tagline */
+        margin-top: 0.5rem; /* Small margin to separate from h1 */
+        margin-bottom: 0; /* Remove bottom margin to keep it close to the button */
     }
     p {
       margin-bottom: 1rem;
@@ -48,7 +57,7 @@
     }
     .btn {
       display: inline-block;
-      margin-top: 0.75rem;
+      margin-top: 1.2rem; /* Increased top margin for the button */
       padding: 0.6rem 1.2rem;
       background-color: #1a1a1a;
       color: #fff;
