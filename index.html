@@ -1,195 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>VANTALAB — Digital Underground</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    html, body {
-      background: #0d0d0d;
-      color: #fff;
-      font-family: 'Arial', sans-serif;
-      overflow-x: hidden;
-      height: 100%;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: radial-gradient(circle at center, #111 0%, #000 100%);
-      animation: pulseBG 6s ease-in-out infinite;
-      z-index: -2;
-    }
-
-    @keyframes pulseBG {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.85; }
-    }
-
-    header {
-      padding: 20px;
-      text-align: center;
-      border-bottom: 1px solid #1f1f1f;
-    }
-
-    header h1 {
-      font-size: 54px;
-      background: linear-gradient(90deg, #00ffe7, #ff00cc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 2px;
-    }
-
-    .content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 60px 20px;
-      min-height: 80vh;
-    }
-
-    .glitch {
-      font-size: 24px;
-      color: #ccc;
-      position: relative;
-      margin-bottom: 30px;
-      animation: glitch 2s infinite;
-    }
-
-    @keyframes glitch {
-      0% { text-shadow: 2px 0 #00ffe7, -2px 0 #ff00cc; }
-      25% { text-shadow: -2px 0 #00ffe7, 2px 0 #ff00cc; }
-      50% { text-shadow: 2px 0 #00ffe7, -2px 0 #ff00cc; }
-      75% { text-shadow: -2px 0 #00ffe7, 2px 0 #ff00cc; }
-      100% { text-shadow: 2px 0 #00ffe7, -2px 0 #ff00cc; }
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 30px;
-      border: 2px solid #00ffe7;
-      color: #00ffe7;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: 0.3s;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background: #00ffe7;
-      color: #000;
-    }
-
-    footer {
-      padding: 15px;
-      text-align: center;
-      font-size: 12px;
-      color: #444;
-      border-top: 1px solid #1f1f1f;
-    }
-
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 99;
-      pointer-events: none;
-    }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 36px; }
-      .glitch { font-size: 18px; }
-      .btn { padding: 12px 25px; font-size: 14px; }
-    }
-  </style>
-</head>
-<body>
-
-  <canvas id="fireworks"></canvas>
-
-  <header>
-    <h1>VANTALAB</h1>
-  </header>
-
-  <div class="content">
-    <div class="glitch">Digital Chaos Engineered for Control</div>
-    <a class="btn" onclick="launchFireworks()">Access the Lab</a>
-  </div>
-
-  <footer>
-    © 2025 Vantalab.online — All Rights Reserved
-  </footer>
-
-  <script>
-    const canvas = document.getElementById("fireworks");
-    const ctx = canvas.getContext("2d");
-    let W = window.innerWidth;
-    let H = window.innerHeight;
-    canvas.width = W;
-    canvas.height = H;
-
-    let particles = [];
-
-    function createFirework(x, y) {
-      for (let i = 0; i < 100; i++) {
-        particles.push({
-          x: x,
-          y: y,
-          radius: Math.random() * 2 + 1,
-          color: `hsl(${Math.random() * 360}, 100%, 50%)`,
-          angle: Math.random() * 2 * Math.PI,
-          speed: Math.random() * 5 + 2,
-          alpha: 1
-        });
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VantaLab – Automate Better</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
-    }
 
-    function updateFireworks() {
-      ctx.clearRect(0, 0, W, H);
-      for (let i = 0; i < particles.length; i++) {
-        let p = particles[i];
-        p.x += Math.cos(p.angle) * p.speed;
-        p.y += Math.sin(p.angle) * p.speed;
-        p.alpha -= 0.015;
-        if (p.alpha <= 0) {
-          particles.splice(i, 1);
-          i--;
-        } else {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2, false);
-          ctx.fillStyle = `rgba(${hexToRgb(p.color)}, ${p.alpha})`;
-          ctx.fill();
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #ffffff;
+        color: #333;
+        line-height: 1.6;
+        padding: 40px 20px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 960px;
+        margin: 0 auto 60px;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #1a1a1a;
+      }
+
+      nav a {
+        color: #1a1a1a;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-left: 20px;
+      }
+
+      .hero {
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #111;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+        color: #555;
+      }
+
+      .cta-button {
+        background: #007bff;
+        color: #fff;
+        border: none;
+        padding: 14px 28px;
+        font-size: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .cta-button:hover {
+        background: #005fcc;
+      }
+
+      .footer {
+        margin-top: 100px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #999;
+      }
+
+      @media (max-width: 600px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav {
+          margin-top: 10px;
         }
       }
-      requestAnimationFrame(updateFireworks);
-    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">VantaLab</div>
+      <nav>
+        <a href="mailto:founder@vantalab.online">Contact</a>
+      </nav>
+    </header>
 
-    function launchFireworks() {
-      const x = W / 2;
-      const y = H / 2;
-      createFirework(x, y);
-    }
+    <section class="hero">
+      <h1>Automation for Modern Teams</h1>
+      <p>
+        VantaLab builds no-code automation tools that simplify your business
+        workflows. We’re a lean, bootstrapped startup helping teams launch faster, scale better, and automate smarter.
+      </p>
+      <a href="mailto:founder@vantalab.online" class="cta-button"
+        >Get in Touch</a
+      >
+    </section>
 
-    function hexToRgb(h) {
-      const res = h.match(/\d+/g);
-      return res ? `${res[0]},${res[1]},${res[2]}` : '255,255,255';
-    }
-
-    window.addEventListener("resize", () => {
-      W = window.innerWidth;
-      H = window.innerHeight;
-      canvas.width = W;
-      canvas.height = H;
-    });
-
-    updateFireworks();
-  </script>
-
-</body>
+    <div class="footer">
+      &copy; 2025 VantaLab. Bootstrapped with focus, built with intent.
+    </div>
+  </body>
 </html>
