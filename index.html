@@ -1,123 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VantaLab – Automate Better</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VantaLab</title>
+  <link rel="icon" href="/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #fff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1, h2, h3 {
+      margin: 1.5rem 0 1rem;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #1a1a1a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    .btn-secondary {
+      background-color: #666;
+    }
+    footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    ul {
+      margin-left: 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+  </style>
+</head>
+<body>
 
-      body {
-        font-family: "Poppins", sans-serif;
-        background: #ffffff;
-        color: #333;
-        line-height: 1.6;
-        padding: 40px 20px;
-      }
+  <header>
+    <h1>VantaLab</h1>
+    <p>Automating smarter workflows.<br>
+    We help startups and teams move faster with no-code automation tools.</p>
+    <a href="mailto:founder@vantalab.online" class="btn">Get in Touch</a>
+  </header>
 
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 960px;
-        margin: 0 auto 60px;
-      }
+  <section>
+    <h2>About VantaLab</h2>
+    <p>VantaLab is a lean automation startup building reliable no-code solutions for modern teams.
+    We help founders, marketers, and developers streamline processes, reduce repetitive tasks, and focus on growth.
+    Founded in 2025, proudly bootstrapped, and built to scale. We value simplicity, speed, and solving real problems.</p>
+  </section>
 
-      .logo {
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: #1a1a1a;
-      }
+  <section id="services">
+    <h2>What We Build</h2>
+    <ul>
+      <li>No-code workflow automation</li>
+      <li>API integration without writing code</li>
+      <li>Scheduled task runners</li>
+      <li>Marketing ops automations</li>
+      <li>Data syncing across apps</li>
+      <li>Internal tools for lean teams</li>
+      <li>Rapid MVPs using Make and automation stacks</li>
+      <li>Zapier and Make-based integration flows</li>
+      <li>Automated reporting dashboards</li>
+    </ul>
+  </section>
 
-      nav a {
-        color: #1a1a1a;
-        text-decoration: none;
-        font-size: 1rem;
-        margin-left: 20px;
-      }
+  <section>
+    <h2>Why VantaLab</h2>
+    <ul>
+      <li>Built for scalability</li>
+      <li>Transparent, lightweight stack</li>
+      <li>Modern UI, backend powered by Make & custom logic</li>
+      <li>Designed for startups & solo founders</li>
+      <li>Minimal overhead and maximum focus on results</li>
+      <li>Hands-on support with quick iterations</li>
+    </ul>
+  </section>
 
-      .hero {
-        max-width: 720px;
-        margin: 0 auto;
-        text-align: center;
-      }
+  <section id="founder">
+    <h2>Founder</h2>
+    <p>Built by Hamid Tanveer, passionate about practical automation, solo tech building,
+    and launching scrappy tools that deliver results. Hamid leads with a builder-first mindset,
+    combining lean execution with a clear understanding of startup pain points.</p>
+  </section>
 
-      .hero h1 {
-        font-size: 2.4rem;
-        font-weight: 600;
-        margin-bottom: 20px;
-        color: #111;
-      }
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Whether you're launching your first MVP or need systems to scale, let's talk.</p>
+    <a href="mailto:founder@vantalab.online" class="btn">Email Us</a>
+  </section>
 
-      .hero p {
-        font-size: 1.1rem;
-        margin-bottom: 40px;
-        color: #555;
-      }
+  <footer>
+    <p>© 2025 VantaLab · Built with focus and passion</p>
+  </footer>
 
-      .cta-button {
-        background: #007bff;
-        color: #fff;
-        border: none;
-        padding: 14px 28px;
-        font-size: 1rem;
-        border-radius: 8px;
-        cursor: pointer;
-        text-decoration: none;
-      }
-
-      .cta-button:hover {
-        background: #005fcc;
-      }
-
-      .footer {
-        margin-top: 100px;
-        text-align: center;
-        font-size: 0.9rem;
-        color: #999;
-      }
-
-      @media (max-width: 600px) {
-        header {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        nav {
-          margin-top: 10px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="logo">VantaLab</div>
-      <nav>
-        <a href="mailto:founder@vantalab.online">Contact</a>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <h1>Automation for Modern Teams</h1>
-      <p>
-        VantaLab builds no-code automation tools that simplify your business
-        workflows. We’re a lean, bootstrapped startup helping teams launch faster, scale better, and automate smarter.
-      </p>
-      <a href="mailto:founder@vantalab.online" class="cta-button"
-        >Get in Touch</a
-      >
-    </section>
-
-    <div class="footer">
-      &copy; 2025 VantaLab. Bootstrapped with focus, built with intent.
-    </div>
-  </body>
+</body>
 </html>
